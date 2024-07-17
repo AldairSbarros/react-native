@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
+
 export default class App extends Component{
   constructor(props){
     super(props);
@@ -21,13 +22,24 @@ export default class App extends Component{
       'A maior barreira para o sucesso é o medo do fracasso.'
     ];
   }
+
+  
+  
   quebraBiscoito(){
     let numeroAleatorio = Math.floor(Math.random() * this.frases.length);
 
     this.setState({
       textoFrase:'" ' + this.frases[numeroAleatorio] + '"',
       img: require('./src/biscoitoAberto.png')
-    })
+    });
+
+        
+
+    setTimeout(() =>{
+      this.setState({
+        img: require('./src/biscoito.png')
+      });
+    }, 3000);
   }
 
   render(){
@@ -50,6 +62,7 @@ export default class App extends Component{
     )
   }
 }
+
 
 const styles = StyleSheet.create({
   container:{
